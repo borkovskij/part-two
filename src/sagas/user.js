@@ -15,7 +15,7 @@ function* getUser({ payload }) {
 			})
 		);
 	} catch (e) {
-		yield put(fetchUserDataFail);
+		yield put(fetchUserDataFail());
 	}
 }
 
