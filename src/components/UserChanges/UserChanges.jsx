@@ -4,6 +4,7 @@ import P from 'prop-types';
 import { Container, ChangesContainer, Title, Arrow, Text } from './styled';
 import Button from '../Button';
 import { userType } from '../../propTypes';
+import Error from '../Error/Error';
 
 class UserChanges extends React.Component {
 	static propTypes = {
@@ -37,7 +38,10 @@ class UserChanges extends React.Component {
 	};
 
 	render() {
-		const { updatedUser, navigateToUsersList } = this.props;
+		const { updatedUser, navigateToUsersList, user } = this.props;
+		if (user === null) {
+			return <Error />;
+		}
 		return (
 			<Container>
 				<Title>Updates: </Title>
