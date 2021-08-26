@@ -1,4 +1,4 @@
-import { NAVIGATE_HOME } from '../actions/user';
+import { NAVIGATE_HOME } from '../actions';
 
 export const navigateToUsersList = () => ({
 	type: NAVIGATE_HOME,

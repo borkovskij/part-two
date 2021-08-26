@@ -1,4 +1,4 @@
-import { USERS_LIST_PENDING, USERS_LIST_SUCCESS, USERS_LIST_FAIL, CLEAR_DATA } from '../actions/users';
+import { USERS_LIST_PENDING, USERS_LIST_SUCCESS, USERS_LIST_FAIL, CLEAR_DATA } from '../actions';
 
 const initialState = {
 	isLoading: false,

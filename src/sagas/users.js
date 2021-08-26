@@ -1,5 +1,6 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { USERS_LIST_FAIL, USERS_LIST_PENDING, USERS_LIST_SUCCESS } from '../actions/users';
+import { fetchUserDataSuccess, fetchUsersDataFail } from '../actionCreators/users';
+import { USERS_LIST_PENDING } from '../actions/users';
 import { getUsersList } from '../services/users';
 
 function* getUsers({ payload }) {
@@ -7,9 +8,8 @@ function* getUsers({ payload }) {
 
 	try {
 		const data = yield call(getUsersList, page);
-		yield put({
-			type: USERS_LIST_SUCCESS,
-			payload: {
+		yield put(
+			fetchUserDataSuccess({
 				users: data.data,
 				pagination: {
 					page: data.page,
@@ -17,12 +17,10 @@ function* getUsers({ payload }) {
 					perPage: data.per_page,
 					total: data.total,
 				},
-			},
-		});
+			})
+		);
 	} catch (e) {
-		yield put({
-			type: USERS_LIST_FAIL,
-		});
+		yield put(fetchUsersDataFail());
 	}
 }
 

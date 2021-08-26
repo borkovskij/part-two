@@ -7,23 +7,23 @@ import {
 	UPDATE_USER_FAIL,
 	UPDATE_USER_PENDING,
 	UPDATE_USER_SUCCESS,
-} from '../actions/user';
+} from '../actions';
 import { getUserData, updateUserData } from '../services/user';
 import { history } from '../store';
 import { ROUTES } from '../constants';
+import { fetchUserDataFail, fetchUserSuccess, updateUserFail, updateUserSuccess } from '../actionCreators/user';
 
 function* getUser({ payload }) {
 	const { userId } = payload;
 	try {
 		const data = yield call(getUserData, userId);
-		yield put({
-			type: FETCH_USER_SUCCESS,
-			payload: { user: data.data },
-		});
+		yield put(
+			fetchUserSuccess({
+				user: data.data,
+			})
+		);
 	} catch (e) {
-		yield put({
-			type: FETCH_USER_FAIL,
-		});
+		yield put(fetchUserDataFail);
 	}
 }
 
@@ -31,17 +31,10 @@ function* updateUser({ payload }) {
 	const { userData } = payload;
 	try {
 		const data = yield call(updateUserData, userData);
-		yield put({
-			type: UPDATE_USER_SUCCESS,
-			payload: {
-				userData: data,
-			},
-		});
+		yield put(updateUserSuccess({ userData: data }));
 		yield call(history.push, ROUTES.CONFIRMATION_ROUTE);
 	} catch (e) {
-		yield put({
-			type: UPDATE_USER_FAIL,
-		});
+		yield put(updateUserFail());
 	}
 }
 

@@ -5,7 +5,7 @@ import {
 	UPDATE_USER_FAIL,
 	UPDATE_USER_PENDING,
 	UPDATE_USER_SUCCESS,
-} from '../actions/user';
+} from '../actions';
 
 const initialState = {
 	isLoading: false,
