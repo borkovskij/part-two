@@ -43,26 +43,22 @@ class UsersListContainer extends Component {
 			return <Error />;
 		}
 
-		if (users == null) {
+		if (users === null) {
 			return isLoading ? <LoadingScreen /> : null;
 		}
 
 		return (
 			<Container>
-				{isLoading ? (
-					<LoadingScreen />
-				) : (
-					<React.Fragment>
-						<UsersList
-							users={users}
-							totalPages={pagination.totalPages}
-							page={pagination.page}
-							fetchUsers={fetchUsers}
-							isLoading={isLoading}
-							onEditUserClick={this.handleNavigateToUserEdit}
-						/>
-					</React.Fragment>
-				)}
+				<React.Fragment>
+					<UsersList
+						users={users}
+						totalPages={pagination.totalPages}
+						page={pagination.page}
+						fetchUsers={fetchUsers}
+						isLoading={isLoading}
+						onEditUserClick={this.handleNavigateToUserEdit}
+					/>
+				</React.Fragment>
 			</Container>
 		);
 	}

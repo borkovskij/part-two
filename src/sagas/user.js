@@ -1,13 +1,5 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import {
-	FETCH_USER_FAIL,
-	FETCH_USER_PENDING,
-	FETCH_USER_SUCCESS,
-	NAVIGATE_HOME,
-	UPDATE_USER_FAIL,
-	UPDATE_USER_PENDING,
-	UPDATE_USER_SUCCESS,
-} from '../actions';
+import { FETCH_USER_PENDING, NAVIGATE_HOME, UPDATE_USER_PENDING } from '../actions';
 import { getUserData, updateUserData } from '../services/user';
 import { history } from '../store';
 import { ROUTES } from '../constants';

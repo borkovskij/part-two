@@ -30,7 +30,7 @@ class UserProfile extends React.Component {
       return <Error/>
     }
 
-    if (!Object.keys(user).length) {
+    if (user === null) {
 			return isLoading ? <LoadingScreen /> : null;
 		}
 

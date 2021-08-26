@@ -1,6 +1,6 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { fetchUserDataSuccess, fetchUsersDataFail } from '../actionCreators/users';
-import { USERS_LIST_PENDING } from '../actions/users';
+import { USERS_LIST_PENDING } from '../actions';
 import { getUsersList } from '../services/users';
 
 function* getUsers({ payload }) {

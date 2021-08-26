@@ -9,8 +9,8 @@ import {
 
 const initialState = {
 	isLoading: false,
-	user: {},
-	updatedUser: {},
+	user: null,
+	updatedUser: null,
 	error: false,
 };
 
@@ -33,9 +33,7 @@ const user = (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				isLoading: false,
-				updatedUser: {
-					...payload.userData,
-				},
+				updatedUser: payload.userData,
 			};
 		case FETCH_USER_FAIL:
 		case UPDATE_USER_FAIL:

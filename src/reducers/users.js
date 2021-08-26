@@ -24,7 +24,7 @@ const users = (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				isLoading: false,
-				users: state.users ? [ ...state.users, ...payload.users ] : [ ...payload.users ],
+				users: [ ...(state.users || []), ...payload.users ],
 				pagination: {
 					...payload.pagination,
 				},
